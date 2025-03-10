@@ -1,0 +1,354 @@
+.navbar {
+  height: 400px; /* Increased from 300px to make more room for the banner */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #f5f2e9;
+  padding: 0 var(--desktop-padding);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  height: calc(var(--header-height) * 0.8);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.navbar-container {
+  max-width: var(--max-width);
+  height: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding-top: 20px; /* Added padding to position content better in taller navbar */
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.banner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%; /* Adjusted to show more of the top portion */
+  filter: brightness(1.05) contrast(1.1) saturate(1.2);
+  transform: scale(1.05);
+  transition: all 0.5s ease;
+  background-color: #f5f2e9;
+}
+
+.navbar.scrolled .banner-video {
+  filter: brightness(0.95) contrast(1.05) saturate(1.1) blur(1px);
+  transform: scale(1.05) translateY(-2%);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(245, 242, 233, 0.1) 0%, /* Adjusted overlay to match beige */
+    rgba(245, 242, 233, 0.4) 70%,
+    rgba(245, 242, 233, 0.6) 100%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.navbar-brand a {
+  font-size: 2.2rem; /* Increased font size for banner-like appearance */
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.navbar-brand a:hover {
+  color: #ff6b6b;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-btn, .cart-btn, .mobile-menu-btn {
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-btn:hover, .cart-btn:hover, .mobile-menu-btn:hover {
+  color: #ff6b6b;
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.cart-btn {
+  position: relative;
+  text-decoration: none;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff6b6b;
+  color: white;
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-nav-links {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+  padding: 0.8rem 0; /* Increased padding for more space */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+
+.main-nav-links a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding: 0.7rem 1.5rem; /* Increased padding for larger clickable area */
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  z-index: 51;
+  cursor: pointer;
+  font-size: 1.1rem; /* Slightly larger font size */
+}
+
+.main-nav-links a:hover,
+.main-nav-links a.active {
+  color: #ff6b6b;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ff6b6b;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.main-nav-links a:hover::after,
+.main-nav-links a.active::after {
+  width: 70%;
+}
+
+/* Update the navbar-links-container and navbar-links styles */
+.navbar-links-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 100; /* Increased z-index to ensure it's above other elements */
+}
+
+.navbar-links {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem var(--desktop-padding);
+  width: 100%;
+}
+
+.navbar-links a {
+  padding: 1rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid #f0f0f0;
+  transition: color 0.3s ease;
+  display: block; /* Ensure the link takes full width */
+  width: 100%;
+  text-align: center;
+  cursor: pointer; /* Explicitly set cursor */
+  position: relative; /* Ensure position context for z-index */
+  z-index: 101; /* Make sure links are above any potential overlays */
+}
+
+/* Also update the main-nav-links to ensure those are clickable too */
+.main-nav-links {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+  padding: 0.5rem 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  z-index: 50; /* Ensure these links are above other elements */
+}
+
+.main-nav-links a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  z-index: 51; /* Ensure links are above the container */
+  cursor: pointer;
+}
+
+.navbar-links a:last-child {
+  border-bottom: none;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.05); /* Subtle background on hover */
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+  
+  .navbar-links-container {
+    display: none;
+  }
+}
+
+/* Improved responsive styles */
+@media (max-width: 1024px) {
+  .navbar {
+    height: 350px; /* Adjusted for tablet */
+  }
+  
+  .navbar-brand a {
+    font-size: 1.8rem;
+  }
+  
+  .main-nav-links {
+    gap: 1.5rem;
+  }
+  
+  .main-nav-links a {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 150px; /* Increased from 120px for mobile */
+    padding: 0 var(--mobile-padding);
+  }
+  
+  .navbar-container {
+    height: 70%;
+    padding-top: 10px;
+  }
+  
+  .main-nav-links {
+    display: none;
+  }
+  
+  .navbar-brand a {
+    font-size: 1.2rem;
+  }
+  
+  .search-btn, .cart-btn, .mobile-menu-btn {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+  
+  .navbar-links a {
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .banner-video {
+    object-position: center center;
+  }
+  
+  .navbar.scrolled {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 100px;
+  }
+  
+  .navbar-container {
+    padding-top: 5px;
+  }
+  
+  .navbar-brand a {
+    font-size: 1rem;
+  }
+  
+  .search-btn, .cart-btn, .mobile-menu-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+  
+  .navbar-links a {
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .navbar.scrolled {
+    height: 70px;
+  }
+}

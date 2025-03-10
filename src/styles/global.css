@@ -1,0 +1,135 @@
+/* Responsive root variables */
+:root {
+  --header-height: 80px;
+  --max-width: 1200px;
+  --desktop-padding: 2rem;
+  --mobile-padding: 1rem;
+}
+
+/* Responsive base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container for page content */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--desktop-padding);
+}
+
+/* Responsive typography */
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+/* Responsive grid system */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+/* Responsive media queries */
+@media (max-width: 1024px) {
+  :root {
+    --desktop-padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+    --desktop-padding: 1rem;
+    --mobile-padding: 1rem;
+  }
+  
+  .container {
+    padding: 0 var(--mobile-padding);
+  }
+  
+  .grid {
+    gap: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-height: 60px;
+    --mobile-padding: 0.8rem;
+  }
+  
+  .grid {
+    gap: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+  }
+  
+  p {
+    font-size: 0.9rem;
+  }
+}
