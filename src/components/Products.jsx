@@ -46,6 +46,19 @@ const Products = () => {
     return `${import.meta.env.BASE_URL}${imageName}`;
   };
   
+  // Add image loading state management
+  const [loadingImages, setLoadingImages] = useState({});
+  
+  const handleImageLoad = (id) => {
+    setLoadingImages(prev => ({...prev, [id]: false}));
+  };
+  
+  const handleImageError = (e, id) => {
+    setLoadingImages(prev => ({...prev, [id]: false}));
+    e.target.onerror = null;
+    e.target.src = `${import.meta.env.BASE_URL}placeholder.jpg`;
+  };
+  
   const filteredProducts = filter === 'todos' 
     ? products 
     : products.filter(product => product.category === filter);
@@ -120,19 +133,28 @@ const Products = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 + index * 0.1 }}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            whileHover={{ 
+              y: -5, 
+              boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+              transition: { duration: 0.3 } 
+            }}
           >
             <div className="product-image">
+              {loadingImages[product.id] !== false && (
+                <div className="image-loading-placeholder">
+                  <div className="loading-spinner"></div>
+                </div>
+              )}
               <img 
                 src={getImagePath(product.image)} 
-                alt={product.name} 
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = `${import.meta.env.BASE_URL}placeholder.jpg`;
-                }}
+                alt={product.name}
+                style={{ opacity: loadingImages[product.id] === false ? 1 : 0 }}
+                onLoad={() => handleImageLoad(product.id)}
+                onError={(e) => handleImageError(e, product.id)}
               />
               <div className="product-overlay">
                 <button className="view-details">Ver Detalhes</button>
+                <button className="quick-view">Visualização Rápida</button>
               </div>
             </div>
             <div className="product-info">
@@ -140,7 +162,14 @@ const Products = () => {
               <p>{product.description}</p>
               <div className="product-footer">
                 <span className="product-price">{product.price}</span>
-                <button className="add-to-cart">Comprar</button>
+                <button className="add-to-cart">
+                  <span>Comprar</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                </button>
               </div>
             </div>
           </motion.div>

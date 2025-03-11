@@ -1,107 +1,78 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
-import { FaInstagram, FaEnvelope, FaMapMarkerAlt, FaPhone, FaWhatsapp } from 'react-icons/fa'
-import { motion } from 'framer-motion'
-import './Contact.css'
-// Remove self-import as it's not needed since this is the Contact component itself
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaEnvelope, FaInstagram } from 'react-icons/fa';
+import PageTransition from './PageTransition';
+import './Contact.css';
 
-function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  
-  const [formStatus, setFormStatus] = useState({
-    submitted: false,
-    success: false,
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Simulate form submission
-    setFormStatus({
-      submitted: true,
-      success: true,
-      message: 'Mensagem enviada com sucesso! Entraremos em contato em breve.'
-    });
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-      setFormStatus({
-        submitted: false,
-        success: false,
-        message: ''
-      });
-    }, 3000);
-  };
-
+const Contact = () => {
   return (
-    <div className="contact-wrapper">
+    <PageTransition>
       <motion.div 
-        className="contact-image"
+        className="contact-container"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        style={{ 
-          backgroundImage: `url(${import.meta.env.BASE_URL}images/Confira-as-5-flores-para-plantar-no-inverno-em-qualquer-regiao-do-Brasil.jpg)` 
-        }}
-      ></motion.div>
-      
-      <div className="contact-container">
-        <motion.div 
-          className="contact-header"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1>Entre em Contato</h1>
-          <p>Estamos aqui para atender você com todo carinho</p>
-        </motion.div>
-    
-        <motion.div 
-          className="contact-info"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <div className="contact-card">
-            <FaInstagram className="contact-icon" />
-            <h3>Instagram</h3>
-            <a 
-              href="https://www.instagram.com/donamariabentoart" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              @donamariabentoart
-            </a>
-          </div>
-    
-          <div className="contact-card">
-            <FaEnvelope className="contact-icon" />
-            <h3>Email</h3>
-            <a href="mailto:contato@donamariabentoart.com">
-              contato@donamariabentoart.com
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  )
-}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="contact-header">
+          <motion.h1
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Entre em Contato
+          </motion.h1>
+          <motion.p
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="contact-subtitle"
+          >
+            Estamos ansiosos para ouvir você e responder suas dúvidas
+          </motion.p>
+        </div>
 
-export default Contact
+        <div className="contact-content-centered">
+          <motion.div 
+            className="contact-info-centered"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            <div className="info-cards-container">
+              <div className="info-card">
+                <div className="info-icon">
+                  <FaEnvelope />
+                </div>
+                <h3>Email</h3>
+                <p><a href="mailto:contato@donamariabentoart.com">contato@donamariabentoart.com</a></p>
+              </div>
+              
+              <div className="info-card">
+                <div className="info-icon">
+                  <FaInstagram />
+                </div>
+                <h3>Instagram</h3>
+                <p><a href="https://instagram.com/donamariabentoart" target="_blank" rel="noopener noreferrer">@donamariabentoart</a></p>
+              </div>
+            </div>
+            
+            <div className="contact-image-wrapper">
+              <div className="contact-image">
+                <img 
+                  src={`${import.meta.env.BASE_URL}floral.jpg`} 
+                  alt="Dona Maria Bento Art" 
+                />
+              </div>
+              <div className="image-caption">
+                Arte feita com carinho e dedicação
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </PageTransition>
+  );
+};
+
+export default Contact;

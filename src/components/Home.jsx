@@ -2,7 +2,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { FaHeart } from 'react-icons/fa'
-// eslint-disable-next-line no-unused-vars
+
 import { motion, useScroll, useTransform } from 'framer-motion'
 import PageTransition from './PageTransition'
 import '../styles/Home.css'
