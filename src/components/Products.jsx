@@ -11,7 +11,7 @@ const products = [
     description: 'Lindo pano de prato todo trabalhado na pintura em detalhes magenta! Escolha o que mais combina com a sua decoração 🥰',
     price: 'R$ 120,00',
     image: 'cozinhareamar.jpg',
-    category: 'frases'
+    category: 'fazenda'
   },
   {
     id: 2,
@@ -19,22 +19,24 @@ const products = [
     description: 'Pano de prato frase "coisas boas acontecem aqui" feito a mão em pano 100%algodão- 41x66cm',
     price: 'R$ 135,00',
     image: 'coisas_boas_acontecem.jpg',
+    category: 'cha-cafe'
+  },
+  {
+    id: 3,
+    name: 'Eu me lembro de quando',
+    description: 'Pano de prato com bordado em tons de rosa e verde, com frase nostálgica e detalhes de folhagens. Tecido 100% algodão.',
+    price: 'R$ 125,00',
+    image: 'melembro.jpg',
     category: 'frases'
   },
-    {
-      id: 3,
-      name: 'Eu me lembro de quando',
-      description: 'Pano de prato com bordado em tons de rosa e verde, com frase nostálgica e detalhes de folhagens. Tecido 100% algodão.',
-      price: 'R$ 125,00',
-      image: 'melembro.jpg'
-    },
-    {
-      id: 4,
-      name: 'Pano Floral',
-      description: 'Delicado pano de prato com estampa floral em tons de rosa. Feito à mão com muito carinho.',
-      price: 'R$ 110,00',
-      image: 'floral.jpg'
-    }
+  {
+    id: 4,
+    name: 'Pano Floral',
+    description: 'Delicado pano de prato com estampa floral em tons de rosa. Feito à mão com muito carinho.',
+    price: 'R$ 110,00',
+    image: 'floral.jpg',
+    category: 'flores'
+  }
 ];
 
 const Products = () => {
@@ -85,22 +87,28 @@ const Products = () => {
           Todos
         </button>
         <button 
-          className={`filter-button ${filter === 'florais' ? 'active' : ''}`}
-          onClick={() => setFilter('florais')}
-        >
-          Florais
-        </button>
-        <button 
           className={`filter-button ${filter === 'frases' ? 'active' : ''}`}
           onClick={() => setFilter('frases')}
         >
           Frases
         </button>
         <button 
-          className={`filter-button ${filter === 'personalizados' ? 'active' : ''}`}
-          onClick={() => setFilter('personalizados')}
+          className={`filter-button ${filter === 'fazenda' ? 'active' : ''}`}
+          onClick={() => setFilter('fazenda')}
         >
-          Personalizados
+          Fazenda
+        </button>
+        <button 
+          className={`filter-button ${filter === 'cha-cafe' ? 'active' : ''}`}
+          onClick={() => setFilter('cha-cafe')}
+        >
+          Chá e Café
+        </button>
+        <button 
+          className={`filter-button ${filter === 'flores' ? 'active' : ''}`}
+          onClick={() => setFilter('flores')}
+        >
+          Flores
         </button>
       </motion.div>
 
