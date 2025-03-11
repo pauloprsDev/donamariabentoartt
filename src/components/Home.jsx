@@ -39,7 +39,7 @@ function Home() {
       // Peças rústicas com temas campestres, perfeitas para dar um toque aconchegante à cozinha
     },
     {
-      title: "Coleção Chã e Café",
+      title: "Coleção Chá e Café",
       description: "Produtos elegantes para momentos de pausa, com motivos que celebram o ritual do café",
       image: `${import.meta.env.BASE_URL}coisas_boas_acontecem.jpg`
       // Produtos elegantes para momentos de pausa e apreciação, com motivos que celebram o ritual do café
