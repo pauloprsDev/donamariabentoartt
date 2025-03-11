@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes, FaShoppingBag, FaSearch } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Navbar.css';
 
@@ -45,6 +45,10 @@ function Navbar() {
         <div className="video-overlay"></div>
       </div>
       
+      {/* Mobile menu toggle button */}
+      <div className="menu-toggle" onClick={toggleMenu}>
+        {isOpen ? <FaTimes /> : <FaBars />}
+      </div>
       
       <AnimatePresence>
         {isOpen && (

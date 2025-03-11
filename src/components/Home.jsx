@@ -24,21 +24,31 @@ const staggerChildren = {
 // Using public folder paths instead of imports
 function Home() {
   const navigate = useNavigate();
+  // Lista de coleções em destaque na página inicial
   const featuredItems = [
     {
-      title: "Coleção Floral",
-      description: "Hortênsias em tons de azul e roxo, pintadas à mão com delicadeza e amor",
-      image: `${import.meta.env.BASE_URL}18920318-flores-de-lavanda-na-vista-superior-de-fundo-rosa-copie-o-espaco-foto.jpg`
+      title: "Coleção Frases",
+      description: "Panos de prato com mensagens inspiradoras e motivacionais para alegrar seu dia",
+      image: `${import.meta.env.BASE_URL}melembro.jpg`
+      // Coleção que destaca a beleza das flores em tons suaves, ideal para decoração de ambientes
     },
     {
-      title: "Série Abstrata",
-      description: "Panos de prato com frases inspiradoras e designs exclusivos",
+      title: "Coleção Fazenda",
+      description: "Peças com temas rústicos e campestres, trazendo o aconchego do campo para sua casa",
       image: `${import.meta.env.BASE_URL}cozinhareamar.jpg`
+      // Peças rústicas com temas campestres, perfeitas para dar um toque aconchegante à cozinha
     },
     {
-      title: "Inspiração Natural",
-      description: "Designs inspirados na natureza",
+      title: "Coleção Chã e Café",
+      description: "Produtos elegantes para momentos de pausa, com motivos que celebram o ritual do café",
       image: `${import.meta.env.BASE_URL}coisas_boas_acontecem.jpg`
+      // Produtos elegantes para momentos de pausa e apreciação, com motivos que celebram o ritual do café
+    },
+    {
+      title: "Coleção Flores",
+      description: "Delicadas flores pintadas à mão em tecidos especiais, trazendo a natureza para dentro de casa",
+      image: `${import.meta.env.BASE_URL}floral.jpg`
+      // Trabalhos detalhados com motivos florais vibrantes, trazendo a natureza para dentro de casa
     }
   ]
   const { scrollY } = useScroll();
