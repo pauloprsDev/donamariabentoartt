@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaInstagram } from 'react-icons/fa';
+import { FaEnvelope, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import PageTransition from './PageTransition';
 import './Contact.css';
 
@@ -39,8 +39,6 @@ const Contact = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-           
-            
             <div className="info-cards-container" role="list" aria-label="Informações de contato">
               <div className="info-card" role="listitem">
                 <div className="info-icon" aria-hidden="true">
@@ -70,6 +68,23 @@ const Contact = () => {
                     aria-labelledby="instagram-title"
                   >
                     @donamariabentoart
+                  </a>
+                </p>
+              </div>
+              
+              <div className="info-card" role="listitem">
+                <div className="info-icon" aria-hidden="true">
+                  <FaWhatsapp />
+                </div>
+                <h3 id="whatsapp-title">WhatsApp</h3>
+                <p>
+                  <a 
+                    href="https://wa.me/5511999999999" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-labelledby="whatsapp-title"
+                  >
+                    (11) 99999-9999
                   </a>
                 </p>
               </div>
