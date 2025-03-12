@@ -180,11 +180,14 @@ function Home() {
                 />
               </picture>
             </motion.div>
-            <div className="featured-grid">
+            // Atualizando a parte dos itens em destaque
+            
+            <div className="featured-grid" role="list" aria-label="Coleções em destaque">
               {featuredItems.map((item, index) => (
                 <motion.div 
                   key={index}
                   className="featured-item"
+                  role="listitem"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
@@ -198,14 +201,14 @@ function Home() {
                       />
                       <img 
                         src={item.image} 
-                        alt={item.title}
+                        alt={`${item.title}: ${item.description}`}
                         loading="lazy"
                       />
                     </picture>
                   </div>
                   <div className="featured-item-content">
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
+                    <h3 id={`featured-${index}-title`}>{item.title}</h3>
+                    <p id={`featured-${index}-desc`} aria-labelledby={`featured-${index}-title`}>{item.description}</p>
                   </div>
                 </motion.div>
               ))}

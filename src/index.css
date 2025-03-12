@@ -131,11 +131,35 @@ img {
   --mobile-padding: 1.5rem;
   --small-mobile-padding: 1rem;
   --max-width: 1200px;
-  --primary-color: #9e7676;
-  --secondary-color: #594545;
-  --text-primary: #333;
-  --text-secondary: #666;
-  --background-light: #FDF6F0;
+  /* Melhorando o contraste de cores */
+  :root {
+    --text-primary: #333333;
+    --text-secondary: #555555; /* Escurecido para melhor contraste */
+    --link-color: #7d5a5a; /* Escurecido para melhor contraste */
+    --link-hover: #594545; /* Escurecido para melhor contraste */
+    --primary-color: #9e7676;
+    --secondary-color: #594545;
+    --background-light: #FDF6F0;
+  }
+  
+  /* Foco visível para acessibilidade de teclado */
+  a:focus, button:focus, input:focus, textarea:focus, select:focus, [tabindex]:focus {
+    outline: 3px solid #9e7676;
+    outline-offset: 2px;
+  }
+  
+  /* Classe de utilidade para texto visualmente escondido mas acessível para leitores de tela */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
   --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 

@@ -39,21 +39,39 @@ const Contact = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <div className="info-cards-container">
-              <div className="info-card">
-                <div className="info-icon">
+           
+            
+            <div className="info-cards-container" role="list" aria-label="Informações de contato">
+              <div className="info-card" role="listitem">
+                <div className="info-icon" aria-hidden="true">
                   <FaEnvelope />
                 </div>
-                <h3>Email</h3>
-                <p><a href="mailto:contato@donamariabentoart.com">contato@donamariabentoart.com</a></p>
+                <h3 id="email-title">Email</h3>
+                <p>
+                  <a 
+                    href="mailto:contato@donamariabentoart.com" 
+                    aria-labelledby="email-title"
+                  >
+                    contato@donamariabentoart.com
+                  </a>
+                </p>
               </div>
               
-              <div className="info-card">
-                <div className="info-icon">
+              <div className="info-card" role="listitem">
+                <div className="info-icon" aria-hidden="true">
                   <FaInstagram />
                 </div>
-                <h3>Instagram</h3>
-                <p><a href="https://instagram.com/donamariabentoart" target="_blank" rel="noopener noreferrer">@donamariabentoart</a></p>
+                <h3 id="instagram-title">Instagram</h3>
+                <p>
+                  <a 
+                    href="https://instagram.com/donamariabentoart" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-labelledby="instagram-title"
+                  >
+                    @donamariabentoart
+                  </a>
+                </p>
               </div>
             </div>
             
@@ -66,7 +84,7 @@ const Contact = () => {
                   />
                   <img 
                     src={`${import.meta.env.BASE_URL}floral.jpg`} 
-                    alt="Dona Maria Bento Art" 
+                    alt="Pano de prato floral pintado à mão com detalhes em tons de rosa e verde" 
                     loading="lazy"
                     onLoad={(e) => {
                       e.target.classList.add('loaded');
@@ -75,7 +93,7 @@ const Contact = () => {
                   />
                 </picture>
               </div>
-              <div className="image-caption">
+              <div className="image-caption" aria-hidden="true">
                 Arte feita com carinho e dedicação
               </div>
             </div>

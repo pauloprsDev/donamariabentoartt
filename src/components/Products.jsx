@@ -129,11 +129,14 @@ const Products = () => {
         </button>
       </motion.div>
 
-      <div className="products-grid">
+      // Atualizando apenas a parte dos cards de produtos
+      
+      <div className="products-grid" role="list" aria-label="Lista de produtos">
         {filteredProducts.map((product, index) => (
           <motion.div 
             key={product.id} 
             className="product-card"
+            role="listitem"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 + index * 0.1 }}
@@ -145,7 +148,7 @@ const Products = () => {
           >
             <div className="product-image">
               {loadingImages[product.id] !== false && (
-                <div className="image-loading-placeholder">
+                <div className="image-loading-placeholder" aria-hidden="true">
                   <div className="loading-spinner"></div>
                 </div>
               )}
@@ -156,7 +159,7 @@ const Products = () => {
                 />
                 <img 
                   src={getImagePath(product.image)} 
-                  alt={product.name}
+                  alt={`${product.name} - ${product.description}`}
                   loading="lazy"
                   style={{ opacity: loadingImages[product.id] === false ? 1 : 0 }}
                   onLoad={() => handleImageLoad(product.id)}
@@ -164,18 +167,31 @@ const Products = () => {
                 />
               </picture>
               <div className="product-overlay">
-                <button className="view-details">Ver Detalhes</button>
-                <button className="quick-view">Visualização Rápida</button>
+                <button 
+                  className="view-details"
+                  aria-label={`Ver detalhes de ${product.name}`}
+                >
+                  Ver Detalhes
+                </button>
+                <button 
+                  className="quick-view"
+                  aria-label={`Visualização rápida de ${product.name}`}
+                >
+                  Visualização Rápida
+                </button>
               </div>
             </div>
             <div className="product-info">
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
+              <h3 id={`product-${product.id}-title`}>{product.name}</h3>
+              <p id={`product-${product.id}-desc`}>{product.description}</p>
               <div className="product-footer">
-                <span className="product-price">{product.price}</span>
-                <button className="add-to-cart">
+                <span className="product-price" aria-label={`Preço: ${product.price}`}>{product.price}</span>
+                <button 
+                  className="add-to-cart"
+                  aria-label={`Adicionar ${product.name} ao carrinho`}
+                >
                   <span>Comprar</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>

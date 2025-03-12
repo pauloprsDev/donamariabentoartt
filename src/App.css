@@ -57,3 +57,24 @@ main {
     padding: var(--mobile-padding);
   }
 }
+
+
+/* Skip link para acessibilidade de teclado */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #9e7676;
+  color: white;
+  padding: 8px;
+  z-index: 1001;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+#main-content:focus {
+  outline: none;
+}
