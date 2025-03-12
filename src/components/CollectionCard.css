@@ -1,0 +1,142 @@
+.collection-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.collection-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.collection-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.collection-image-container {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.collection-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.collection-card:hover .collection-image {
+  transform: scale(1.05);
+}
+
+.collection-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(74, 37, 69, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.collection-card:hover .collection-overlay {
+  opacity: 1;
+}
+
+.view-collection-btn {
+  background-color: #4A2545;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform: translateY(10px);
+}
+
+.collection-card:hover .view-collection-btn {
+  transform: translateY(0);
+  background-color: #B76E79;
+}
+
+.collection-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.collection-title {
+  font-size: 1.4rem;
+  color: #4A2545;
+  margin-bottom: 0.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+.collection-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #B76E79, #4A2545);
+  transition: width 0.3s ease;
+}
+
+.collection-card:hover .collection-title::after {
+  width: 60px;
+}
+
+.collection-description {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .collection-info {
+    padding: 1.2rem;
+  }
+  
+  .collection-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .collection-image-container {
+    aspect-ratio: 16/9;
+  }
+  
+  .collection-overlay {
+    opacity: 0.8;
+    background: rgba(74, 37, 69, 0.15);
+  }
+  
+  .view-collection-btn {
+    transform: translateY(0);
+    padding: 0.7rem 1.3rem;
+    font-size: 0.9rem;
+    background-color: #4A2545;
+  }
+  
+  .collection-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .collection-description {
+    font-size: 0.9rem;
+  }
+}

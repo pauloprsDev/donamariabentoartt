@@ -181,7 +181,6 @@ function Home() {
               </picture>
             </motion.div>
             
-            
             <div className="featured-grid" role="list" aria-label="Coleções em destaque">
               {featuredItems.map((item, index) => (
                 <motion.div 

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaEnvelope, FaInstagram } from 'react-icons/fa';
 import PageTransition from './PageTransition';
 import './Contact.css';
 
@@ -71,23 +71,6 @@ const Contact = () => {
                   </a>
                 </p>
               </div>
-              
-              <div className="info-card" role="listitem">
-                <div className="info-icon" aria-hidden="true">
-                  <FaWhatsapp />
-                </div>
-                <h3 id="whatsapp-title">WhatsApp</h3>
-                <p>
-                  <a 
-                    href="https://wa.me/5511999999999" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    aria-labelledby="whatsapp-title"
-                  >
-                    (11) 99999-9999
-                  </a>
-                </p>
-              </div>
             </div>
             
             <div className="contact-image-wrapper">
@@ -112,6 +95,31 @@ const Contact = () => {
                 Arte feita com carinho e dedicação
               </div>
             </div>
+            
+            {/* Nova seção com logo e ícone do Instagram */}
+            <motion.div 
+              className="contact-social-section"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <img 
+                src={`${import.meta.env.BASE_URL}logo.webp`} 
+                alt="Dona Maria Bento Ateliê" 
+                className="contact-logo"
+              />
+              <div className="contact-social-links">
+                <a 
+                  href="https://instagram.com/donamariabentoart" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="contact-social-link"
+                  aria-label="Siga-nos no Instagram"
+                >
+                  <FaInstagram />
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>

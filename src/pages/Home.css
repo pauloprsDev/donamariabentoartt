@@ -1,0 +1,127 @@
+/* Ajustes para as coleções na página home */
+.collections-section {
+  padding: 2rem var(--desktop-padding);
+  margin: 2rem 0;
+}
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.collection-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collection-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.collection-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.collection-content {
+  padding: 2rem;
+  background-color: white;
+}
+
+.collection-title {
+  font-size: 1.4rem;
+  color: #4A2545;
+  margin-bottom: 0.8rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.collection-description {
+  color: #666;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+.collection-link {
+  display: inline-block;
+  color: #B76E79;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.collection-link:hover {
+  color: #4A2545;
+  text-decoration: underline;
+}
+
+/* Ajustes responsivos para mobile */
+@media (max-width: 992px) {
+  .collections-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .collections-section {
+    padding: 1.5rem var(--mobile-padding);
+  }
+  
+  .collection-image {
+    height: 220px;
+  }
+  
+  .collection-content {
+    padding: 2.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .collections-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .collection-card {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .collection-content {
+    padding: 2.5rem;
+  }
+  
+  .collection-image {
+    height: 250px;
+  }
+  
+  .collection-title {
+    font-size: 1.5rem;
+  }
+  
+  .collection-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .collections-section {
+    padding: 1rem var(--mobile-padding);
+  }
+  
+  .collection-content {
+    padding: 2rem 1.8rem;
+  }
+  
+  .collection-image {
+    height: 200px;
+  }
+}

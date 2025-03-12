@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaInstagram,  } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
@@ -24,24 +24,24 @@ const Footer = () => {
         </div>
         
         <div className="footer-info">
-          <img 
-            src={`${import.meta.env.BASE_URL}logo.webp`} 
-            alt="Dona Maria Bento Ateliê" 
-            className="footer-logo"
-          />
-          
-          <div className="social-links">
-            <a 
-              href="https://instagram.com/donamariabentoart" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="Instagram"
-            >
-              <FaInstagram />
-            </a>
+          <div className="footer-logo-social">
+            <img 
+              src={`${import.meta.env.BASE_URL}logo.webp`} 
+              alt="Dona Maria Bento Ateliê" 
+              className="footer-logo"
+            />
             
-            
+            <div className="footer-social-links">
+              <a 
+                href="https://instagram.com/donamariabentoart" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="footer-social-link"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+            </div>
           </div>
           
           <p className="copyright">

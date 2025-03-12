@@ -193,3 +193,49 @@
     max-width: 140px;
   }
 }
+
+/* Adicionando os estilos para o logo e ícone do Instagram lado a lado */
+.footer-logo-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social-links {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.footer-social-link {
+  color: white;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.footer-social-link:hover {
+  color: #D4AF37;
+  transform: translateY(-3px);
+}
+
+/* Ajustes responsivos para mobile */
+@media (max-width: 480px) {
+  .footer-logo {
+    max-width: 120px;
+  }
+  
+  .footer-social-link {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    margin-left: 0.5rem;
+  }
+}
