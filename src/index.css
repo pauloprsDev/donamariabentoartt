@@ -126,3 +126,43 @@ img {
 .gap-sm { gap: var(--spacing-sm); }
 .gap-md { gap: var(--spacing-md); }
 .gap-lg { gap: var(--spacing-lg); }
+
+:root {
+  --mobile-padding: 1.5rem;
+  --small-mobile-padding: 1rem;
+  --max-width: 1200px;
+  --primary-color: #9e7676;
+  --secondary-color: #594545;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --background-light: #FDF6F0;
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Melhorias de responsividade global */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px; /* Reduz ligeiramente o tamanho base da fonte */
+  }
+  
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  h3 {
+    font-size: 1.2rem !important;
+  }
+  
+  p {
+    font-size: 0.95rem !important;
+  }
+  
+  button, .button {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.9rem !important;
+  }
+}

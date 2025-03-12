@@ -264,3 +264,77 @@
     left: 30px;
   }
 }
+
+/* Ajustes para telas pequenas */
+@media (max-width: 480px) {
+  .about-page {
+    padding: 1.5rem var(--small-mobile-padding);
+  }
+  
+  .about-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-header p {
+    font-size: 0.9rem;
+  }
+  
+  .about-story {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .about-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+  
+  .about-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .about-content p {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .values-section {
+    padding: 1.5rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .value-card {
+    padding: 1rem;
+  }
+  
+  .value-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .value-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .value-card p {
+    font-size: 0.85rem;
+  }
+}

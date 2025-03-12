@@ -59,3 +59,50 @@
     transform: translateX(0);
   }
 }
+
+/* Ajustes para telas pequenas */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.8rem var(--small-mobile-padding);
+  }
+  
+  .logo {
+    max-width: 120px;
+  }
+  
+  .menu-toggle {
+    font-size: 1.3rem;
+  }
+  
+  .nav-menu {
+    padding: 1rem;
+  }
+  
+  .nav-menu.active {
+    width: 80%;
+  }
+  
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+  
+  .nav-links {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+}
+
+/* Ajustes para dispositivos muito pequenos */
+@media (max-width: 360px) {
+  .navbar {
+    padding: 0.6rem var(--small-mobile-padding);
+  }
+  
+  .logo {
+    max-width: 100px;
+  }
+  
+  .nav-menu.active {
+    width: 85%;
+  }
+}

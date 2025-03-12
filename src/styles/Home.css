@@ -443,5 +443,81 @@
   }
 }
 
+/* Ajustes para telas pequenas */
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem var(--small-mobile-padding);
+  }
+  
+  .home-logo {
+    max-width: 180px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .featured-item {
+    padding: 0.8rem;
+  }
+  
+  .featured-item-image {
+    height: 120px;
+  }
+  
+  .featured-item-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .featured-item-content p {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2; /* Limits to 2 lines on small devices */
+    line-clamp: 2;
+  }
+  
+  .about-preview {
+    padding: 2rem var(--small-mobile-padding);
+  }
+  
+  .about-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .learn-more-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Ajustes para as decorações florais */
+  .flower-decoration {
+    transform: scale(0.7);
+  }
+}
+
+/* Ajustes para dispositivos muito pequenos */
+@media (max-width: 360px) {
+  .home-logo {
+    max-width: 150px;
+  }
+  
+  .featured-item-image {
+    height: 100px;
+  }
+  
+  .flower-decoration {
+    transform: scale(0.6);
+  }
+}
+
 
  
