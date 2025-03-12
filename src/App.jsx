@@ -11,9 +11,9 @@ import ErrorBoundary from './components/errorboundary'
 
 // Import components directly
 import Home from './components/Home'
-import Products from './components/products'
+import Products from './components/Products'
 import About from './components/about'
-import Contact from './components/contact'
+import Contact from './components/Contact'
 
 // AnimatedRoutes component definition
 function AnimatedRoutes() {

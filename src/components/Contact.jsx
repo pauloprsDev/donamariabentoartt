@@ -58,11 +58,22 @@ const Contact = () => {
             </div>
             
             <div className="contact-image-wrapper">
-              <div className="contact-image">
-                <img 
-                  src={`${import.meta.env.BASE_URL}floral.jpg`} 
-                  alt="Dona Maria Bento Art" 
-                />
+              <div className="contact-image loading">
+                <picture>
+                  <source 
+                    srcSet={`${import.meta.env.BASE_URL}floral.webp`} 
+                    type="image/webp" 
+                  />
+                  <img 
+                    src={`${import.meta.env.BASE_URL}floral.jpg`} 
+                    alt="Dona Maria Bento Art" 
+                    loading="lazy"
+                    onLoad={(e) => {
+                      e.target.classList.add('loaded');
+                      e.target.parentElement.parentElement.classList.remove('loading');
+                    }}
+                  />
+                </picture>
               </div>
               <div className="image-caption">
                 Arte feita com carinho e dedicação

@@ -29,25 +29,29 @@ function Home() {
     {
       title: "Coleção Frases",
       description: "Panos de prato com mensagens inspiradoras e motivacionais para alegrar seu dia",
-      image: `${import.meta.env.BASE_URL}melembro.jpg`
+      image: `${import.meta.env.BASE_URL}melembro.jpg`,
+      imageWebp: `${import.meta.env.BASE_URL}melembro.webp`
       // Coleção que destaca a beleza das flores em tons suaves, ideal para decoração de ambientes
     },
     {
       title: "Coleção Fazenda",
       description: "Peças com temas rústicos e campestres, trazendo o aconchego do campo para sua casa",
-      image: `${import.meta.env.BASE_URL}cozinhareamar.jpg`
+      image: `${import.meta.env.BASE_URL}cozinhareamar.jpg`,
+      imageWebp: `${import.meta.env.BASE_URL}cozinhareamar.webp`
       // Peças rústicas com temas campestres, perfeitas para dar um toque aconchegante à cozinha
     },
     {
       title: "Coleção Chá e Café",
       description: "Produtos elegantes para momentos de pausa, com motivos que celebram o ritual do café",
-      image: `${import.meta.env.BASE_URL}coisas_boas_acontecem.jpg`
+      image: `${import.meta.env.BASE_URL}coisas_boas_acontecem.jpg`,
+      imageWebp: `${import.meta.env.BASE_URL}coisas_boas_acontecem.webp`
       // Produtos elegantes para momentos de pausa e apreciação, com motivos que celebram o ritual do café
     },
     {
       title: "Coleção Flores",
       description: "Delicadas flores pintadas à mão em tecidos especiais, trazendo a natureza para dentro de casa",
-      image: `${import.meta.env.BASE_URL}floral.jpg`
+      image: `${import.meta.env.BASE_URL}floral.jpg`,
+      imageWebp: `${import.meta.env.BASE_URL}floral.webp`
       // Trabalhos detalhados com motivos florais vibrantes, trazendo a natureza para dentro de casa
     }
   ]
@@ -163,11 +167,18 @@ function Home() {
                 <div className="flower-petal petal-5"></div>
               </div>
               
-              <img 
-                src={`${import.meta.env.BASE_URL}logo.jpeg`}
-                alt="Dona Maria Bento Art Logo" 
-                className="home-logo"
-              />
+              <picture>
+                <source 
+                  srcSet={`${import.meta.env.BASE_URL}logo.webp`}
+                  type="image/webp"
+                />
+                <img 
+                  src={`${import.meta.env.BASE_URL}logo.jpeg`}
+                  alt="Dona Maria Bento Art Logo" 
+                  className="home-logo"
+                  loading="eager"
+                />
+              </picture>
             </motion.div>
             <div className="featured-grid">
               {featuredItems.map((item, index) => (
@@ -180,7 +191,17 @@ function Home() {
                   transition={{ delay: index * 0.2, duration: 0.5 }}
                 >
                   <div className="featured-item-image">
-                    <img src={item.image} alt={item.title} />
+                    <picture>
+                      <source 
+                        srcSet={item.imageWebp}
+                        type="image/webp"
+                      />
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        loading="lazy"
+                      />
+                    </picture>
                   </div>
                   <div className="featured-item-content">
                     <h3>{item.title}</h3>

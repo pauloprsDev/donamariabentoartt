@@ -11,6 +11,7 @@ const products = [
     description: 'Lindo pano de prato todo trabalhado na pintura em detalhes magenta! Escolha o que mais combina com a sua decoração 🥰',
     price: 'R$ 120,00',
     image: 'cozinhareamar.jpg',
+    imageWebp: 'cozinhareamar.webp',
     category: 'fazenda'
   },
   {
@@ -19,6 +20,7 @@ const products = [
     description: 'Pano de prato frase "coisas boas acontecem aqui" feito a mão em pano 100%algodão- 41x66cm',
     price: 'R$ 135,00',
     image: 'coisas_boas_acontecem.jpg',
+    imageWebp: 'coisas_boas_acontecem.webp',
     category: 'cha-cafe'
   },
   {
@@ -27,6 +29,7 @@ const products = [
     description: 'Pano de prato com bordado em tons de rosa e verde, com frase nostálgica e detalhes de folhagens. Tecido 100% algodão.',
     price: 'R$ 125,00',
     image: 'melembro.jpg',
+    imageWebp: 'melembro.webp',
     category: 'frases'
   },
   {
@@ -35,6 +38,7 @@ const products = [
     description: 'Delicado pano de prato com estampa floral em tons de rosa. Feito à mão com muito carinho.',
     price: 'R$ 110,00',
     image: 'floral.jpg',
+    imageWebp: 'floral.webp',
     category: 'flores'
   }
 ];
@@ -145,13 +149,20 @@ const Products = () => {
                   <div className="loading-spinner"></div>
                 </div>
               )}
-              <img 
-                src={getImagePath(product.image)} 
-                alt={product.name}
-                style={{ opacity: loadingImages[product.id] === false ? 1 : 0 }}
-                onLoad={() => handleImageLoad(product.id)}
-                onError={(e) => handleImageError(e, product.id)}
-              />
+              <picture>
+                <source 
+                  srcSet={getImagePath(product.imageWebp)} 
+                  type="image/webp" 
+                />
+                <img 
+                  src={getImagePath(product.image)} 
+                  alt={product.name}
+                  loading="lazy"
+                  style={{ opacity: loadingImages[product.id] === false ? 1 : 0 }}
+                  onLoad={() => handleImageLoad(product.id)}
+                  onError={(e) => handleImageError(e, product.id)}
+                />
+              </picture>
               <div className="product-overlay">
                 <button className="view-details">Ver Detalhes</button>
                 <button className="quick-view">Visualização Rápida</button>

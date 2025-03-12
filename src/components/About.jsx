@@ -42,7 +42,17 @@ function About() {
           transition={{ duration: 0.8 }}
         >
           <div className="about-image">
-            <img src={`${import.meta.env.BASE_URL}about-image.jpg`} alt="Dona Maria Bento trabalhando em seu ateliê" />
+            <picture>
+              <source 
+                srcSet={`${import.meta.env.BASE_URL}about-image.webp`} 
+                type="image/webp" 
+              />
+              <img 
+                src={`${import.meta.env.BASE_URL}about.jpg`} 
+                alt="Sobre Dona Maria Bento" 
+                loading="lazy" 
+              />
+            </picture>
           </div>
           <div className="about-content">
             <h2>Como Tudo Começou</h2>
