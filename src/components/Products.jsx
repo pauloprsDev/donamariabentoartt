@@ -129,7 +129,7 @@ const Products = () => {
         </button>
       </motion.div>
 
-      // Atualizando apenas a parte dos cards de produtos
+
       
       <div className="products-grid" role="list" aria-label="Lista de produtos">
         {filteredProducts.map((product, index) => (

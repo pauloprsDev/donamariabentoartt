@@ -1,47 +1,57 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { FaInstagram, FaEnvelope } from 'react-icons/fa'
-import './Footer.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaInstagram,  } from 'react-icons/fa';
+import './Footer.css';
 
-function Footer() {
-  const currentYear = new Date().getFullYear()
+const Footer = () => {
+  // Function to scroll to top when a link is clicked
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <footer className="footer">
+      <div className="footer-border-top"></div>
       <div className="footer-content">
-        <div className="footer-section">
-          <h3>Dona Maria Bento</h3>
-          <p>Tecidos pintados à mão com exclusividade e amor.</p>
+        <div className="footer-links">
+          <Link to="/" className="footer-link" onClick={scrollToTop}>Início</Link>
+          <Link to="/about" className="footer-link" onClick={scrollToTop}>Sobre</Link>
+          <Link to="/products" className="footer-link" onClick={scrollToTop}>Produtos</Link>
+          <Link to="/contact" className="footer-link" onClick={scrollToTop}>Contato</Link>
         </div>
         
-        <div className="footer-section">
-          <h4>Links Rápidos</h4>
-          <nav>
-            <Link to="/">Início</Link>
-            <Link to="/products">Produtos</Link>
-            <Link to="/about">Nossa História</Link>
-            <Link to="/contact">Contato</Link>
-          </nav>
-        </div>
-
-        <div className="footer-section">
-          <h4>Redes Sociais</h4>
+        <div className="footer-info">
+          <img 
+            src={`${import.meta.env.BASE_URL}logo.webp`} 
+            alt="Dona Maria Bento Ateliê" 
+            className="footer-logo"
+          />
+          
           <div className="social-links">
-            <a href="https://www.instagram.com/donamariabentoart" target="_blank" rel="noopener noreferrer">
+            <a 
+              href="https://instagram.com/donamariabentoart" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label="Instagram"
+            >
               <FaInstagram />
             </a>
-            <a href="mailto:contato@donamariabentoart.com">
-              <FaEnvelope />
-            </a>
+            
+            
           </div>
+          
+          <p className="copyright">
+            &copy; {new Date().getFullYear()} Dona Maria Bento Ateliê. Todos os direitos reservados.
+          </p>
         </div>
       </div>
-      
-      <div className="footer-bottom">
-        <p>&copy; {currentYear} Dona Maria Bento Art. Todos os direitos reservados.</p>
-      </div>
+      <div className="footer-border-bottom"></div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
