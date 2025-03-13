@@ -19,6 +19,8 @@
   z-index: -1;
 }
 
+/* Removed about-preview section styles */
+
 .about-header {
   text-align: center;
   margin-bottom: 4rem;

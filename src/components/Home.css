@@ -1,23 +1,353 @@
-/* ... código existente ... */
+/* Hero Section Styles */
+.hero-section {
+  width: 100%;
+  position: relative;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-wrapper {
+  position: relative;
+  margin: 0 auto 3rem;
+  max-width: 300px;
+}
+
+.home-logo {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Flower Decorations */
+.flower-decoration {
+  position: absolute;
+  z-index: 1;
+}
+
+.flower-1 { top: -20px; left: -30px; }
+.flower-2 { top: 10px; right: -25px; }
+.flower-3 { bottom: -15px; left: -20px; }
+.flower-4 { bottom: 20px; right: -15px; }
+.flower-5 { top: 50%; left: -40px; transform: translateY(-50%); }
+.flower-6 { top: 50%; right: -40px; transform: translateY(-50%); }
+
+/* Collections Section */
+.collections-section {
+  background-color: #F7F7F7;
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.section-header {
+  margin-bottom: 2.5rem;
+}
+
+.collections-title {
+  font-size: 2.5rem;
+  color: #4A2545;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.collections-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
 
 .collections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-  margin-top: 2rem;
+  margin: 2rem auto 0;
+  max-width: 1400px;
+  padding: 0 2rem;
 }
 
-/* Responsividade */
+.collection-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.collection-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.collection-content {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: #4A2545;
+  font-family: 'Playfair Display', serif;
+}
+
+.collection-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.collection-link {
+  display: inline-block;
+  color: #B76E79;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  align-self: flex-start;
+}
+
+.collection-link:hover {
+  color: #4A2545;
+  text-decoration: underline;
+}
+
+/* Featured Items */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.featured-item {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.featured-item:hover {
+  transform: translateY(-5px);
+}
+
+.featured-item-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.featured-item-content {
+  padding: 1.5rem;
+}
+
+.featured-item-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #4A2545;
+}
+
+.featured-item-content p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* About Preview Section - Updated to match footer colors */
+.about-preview {
+  background-color: #4A2545; /* Dark purple from footer */
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.about-title {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  color: #F9E8D9; /* Light cream color from footer */
+}
+
+.about-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: #F9E8D9; /* Light cream color from footer */
+  opacity: 0.9;
+}
+
+.about-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.learn-more-button {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.learn-more-button.primary {
+  background-color: #B76E79; /* Rose color from footer */
+  color: white;
+}
+
+.learn-more-button.primary:hover {
+  background-color: #c57b86;
+}
+
+.learn-more-button.secondary {
+  background-color: transparent;
+  color: #F9E8D9; /* Light cream color from footer */
+  border: 2px solid #F9E8D9;
+}
+
+.learn-more-button.secondary:hover {
+  background-color: rgba(249, 232, 217, 0.1);
+}
+
+@media (max-width: 768px) {
+  .about-preview {
+    padding: 3rem 0;
+  }
+  
+  .about-title {
+    font-size: 1.8rem;
+  }
+  
+  .about-description {
+    font-size: 1rem;
+  }
+  
+  .about-buttons {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-preview {
+    padding: 2.5rem 0;
+  }
+  
+  .about-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .learn-more-button {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.learn-more-button:hover {
+  background-color: #c57b86;
+  transform: translateY(-3px);
+}
+
+/* Responsiveness */
 @media (max-width: 1024px) {
-  .collections-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  .collections-grid,
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    padding: 0 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
+  .home {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Collections Section */
   .collections-section {
-    padding: 3rem 1.5rem;
+    width: 100%;
+    padding: 4rem 1rem;
+    text-align: center;
+    background-color: #F7F7F7;
+  }
+  
+  .section-header {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 2.5rem;
+  }
+  
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* About Preview Section */
+  .about-preview {
+    width: 100%;
+    background-color: #4A2545;
+    color: white;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  
+  .about-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .collections-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .collections-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
   
   .collections-title {
@@ -25,67 +355,67 @@
   }
   
   .collections-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 1.5rem;
+  }
+  
+  .collection-image {
+    height: 220px;
+  }
+  
+  .collection-content {
+    padding: 1.5rem;
+  }
+  
+  .featured-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 2rem auto 0;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 2rem 0.5rem;
+  }
+  
   .collections-section {
     padding: 2.5rem 0.5rem;
   }
   
-  .collections-title {
-    font-size: 1.8rem;
-  }
-  
-  .collections-subtitle {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-  
   .collections-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: 0 0.5rem;
-  }
-}
-
-.collection-card {
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* ... código existente ... */
-
-/* Ajustes para mobile */
-@media (max-width: 768px) {
-  .collections-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 0 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .collections-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin: 1.5rem -0.5rem 0;
-    width: calc(100% + 1rem);
+    width: 100%;
+    max-width: 450px;
+    margin: 1.5rem auto 0;
   }
   
   .collection-card {
-    margin: 0 0.5rem;
-    width: calc(100% - 1rem);
+    max-width: none;
+    width: 100%;
   }
   
-  .home-section {
-    padding: 2rem 0.75rem;
+  .collection-image {
+    height: 220px;
   }
-}
-
-/* ... código existente ... */
+  
+  .collection-content {
+    padding: 1.8rem;
+  }
+  
+  .collection-title {
+    font-size: 1.3rem;
+  }
+  
+  .collection-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .logo-wrapper {
+    max-width: 240px;
+  }
+  
+  .flower-decoration {
+    transform: scale(0.8);
+  }}

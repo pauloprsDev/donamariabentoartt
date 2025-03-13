@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './Products.css'
 
@@ -44,7 +44,18 @@ const products = [
 ];
 
 const Products = () => {
-  const [filter, setFilter] = useState('todos');
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const categoryParam = queryParams.get('category');
+  
+  const [filter, setFilter] = useState(categoryParam || 'todos');
+  
+  // Update filter when URL parameter changes
+  useEffect(() => {
+    if (categoryParam) {
+      setFilter(categoryParam);
+    }
+  }, [categoryParam]);
   
   const getImagePath = (imageName) => {
     return `${import.meta.env.BASE_URL}${imageName}`;
