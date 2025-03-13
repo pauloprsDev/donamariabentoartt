@@ -103,21 +103,9 @@ const Contact = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              <img 
-                src={`${import.meta.env.BASE_URL}logo.webp`} 
-                alt="Dona Maria Bento Ateliê" 
-                className="contact-logo"
-              />
+              
               <div className="contact-social-links">
-                <a 
-                  href="https://instagram.com/donamariabentoart" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="contact-social-link"
-                  aria-label="Siga-nos no Instagram"
-                >
-                  <FaInstagram />
-                </a>
+                
               </div>
             </motion.div>
           </motion.div>
