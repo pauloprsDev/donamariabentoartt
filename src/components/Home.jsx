@@ -57,6 +57,27 @@ const Home = () => {
   return (
     <PageTransition>
       <main className="home">
+        {/* Video Banner Section */}
+        <section className="video-banner">
+          <div className="video-container">
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="banner-video"
+              poster={`${import.meta.env.BASE_URL}banner-poster.jpg`}
+            >
+              <source src={`${import.meta.env.BASE_URL}banner1-compressed.mp4`} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="banner-overlay">
+              <h1>Dona Maria Bento</h1>
+              <p>Arte em tecido feita com amor</p>
+            </div>
+          </div>
+        </section>
+
         {/* Collections Section */}
         <section className="collections-section">
           <div className="section-header">
@@ -95,8 +116,6 @@ const Home = () => {
             ))}
           </div>
         </section>
-
-      
       </main>
     </PageTransition>
   );
